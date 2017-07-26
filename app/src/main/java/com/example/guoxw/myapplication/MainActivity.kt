@@ -57,6 +57,19 @@ class MainActivity : AppCompatActivity(), WalkListenerInterface<Person> {
 
         val cooper: Benz = Benz(1, "MiniCooper")
         cooper.addOil()
+        /**
+         * 写法是这样的
+         * 我TM的都忘了
+         */
+        cooper.stopWhenRed(object : Car.MycarStopListener {
+            override fun onStop() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onSart() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
 //        cooper.stopWhenRed(Car.MycarStopListener)
 
 
