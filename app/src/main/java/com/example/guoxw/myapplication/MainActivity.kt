@@ -3,7 +3,10 @@ package com.example.guoxw.myapplication
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.widget.TextView
+import com.example.guoxw.myapplication.abstracts.Benz
+import com.example.guoxw.myapplication.abstracts.Car
 import com.example.guoxw.myapplication.bean.Child
 import com.example.guoxw.myapplication.bean.Parent
 import com.example.guoxw.myapplication.bean.Person
@@ -28,6 +31,10 @@ class MainActivity : AppCompatActivity(), WalkListenerInterface<Person> {
         val tv = findViewById(R.id.sample_text) as TextView
         tv.text = stringFromJNI()
 
+        tv.setOnClickListener(View.OnClickListener {
+
+        })
+
         val parent: Parent = Parent("GXW", 12)
         parent.walkLintener = this
         parent.eat("hot dog")
@@ -47,6 +54,11 @@ class MainActivity : AppCompatActivity(), WalkListenerInterface<Person> {
 
         val teamParent: Team<Parent> = Team("parentTeam", parent)
         teamParent.teamWork("play roboto")
+
+        val cooper: Benz = Benz(1, "MiniCooper")
+        cooper.addOil()
+//        cooper.stopWhenRed(Car.MycarStopListener)
+
 
     }
 
