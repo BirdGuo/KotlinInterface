@@ -1,4 +1,4 @@
-package com.example.guoxw.myapplication
+package com.example.guoxw.myapplication.interfaces
 
 /**
  * Created by guoxw on 2017/7/25 0025.

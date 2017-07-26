@@ -1,4 +1,4 @@
-package com.example.guoxw.myapplication
+package com.example.guoxw.myapplication.interfaces
 
 /**
  * Created by guoxw on 2017/7/25 0025.
@@ -7,8 +7,8 @@ package com.example.guoxw.myapplication
  * @desciption
  * @package com.example.guoxw.myapplication
  */
-interface ParentInterface {
+interface ChildInterface {
 
-    fun work(jobName: String)
+    fun gotoSchool(school: String)
 
 }

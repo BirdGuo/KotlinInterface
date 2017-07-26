@@ -1,4 +1,4 @@
-package com.example.guoxw.myapplication
+package com.example.guoxw.myapplication.bean
 
 import android.util.Log
 

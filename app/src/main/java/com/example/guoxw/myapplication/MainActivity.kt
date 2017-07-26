@@ -1,10 +1,24 @@
 package com.example.guoxw.myapplication
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.TextView
+import com.example.guoxw.myapplication.bean.Child
+import com.example.guoxw.myapplication.bean.Parent
+import com.example.guoxw.myapplication.bean.Person
+import com.example.guoxw.myapplication.bean.Team
+import com.example.guoxw.myapplication.bean.events.WalkEvent
+import com.example.guoxw.myapplication.interfaces.listeners.WalkListenerInterface
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), WalkListenerInterface<Person> {
+
+    val TAG = MainActivity::class.java.simpleName.toString()
+
+    override fun walkOntheWay(walkEvent: WalkEvent<Person>) {
+        Log.i(TAG, walkEvent.person.name.plus(" is walking on the road!"))
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,19 +28,24 @@ class MainActivity : AppCompatActivity() {
         val tv = findViewById(R.id.sample_text) as TextView
         tv.text = stringFromJNI()
 
-        val parent:Parent = Parent("GXW",12)
-
+        val parent: Parent = Parent("GXW", 12)
+        parent.walkLintener = this
         parent.eat("hot dog")
         parent.work("mapbar")
+        parent.walk()
 
-        val child:Child = Child("Mike",11)
+        val child: Child = Child("Mike", 11)
+        child.walkListenerInterface = this
         child.eat("hamburger")
         child.gotoSchool("北京四中")
+        child.walk()
 
-        val teamChild :Team<Child> = Team("childTeam",child)
+        parent.walk()
+
+        val teamChild: Team<Child> = Team("childTeam", child)
         teamChild.teamWork("play PSP")
 
-        val teamParent : Team<Parent> = Team("parentTeam",parent)
+        val teamParent: Team<Parent> = Team("parentTeam", parent)
         teamParent.teamWork("play roboto")
 
     }
@@ -44,4 +63,5 @@ class MainActivity : AppCompatActivity() {
             System.loadLibrary("native-lib")
         }
     }
+
 }

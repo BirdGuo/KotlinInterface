@@ -1,6 +1,7 @@
-package com.example.guoxw.myapplication
+package com.example.guoxw.myapplication.bean
 
 import android.util.Log
+import com.example.guoxw.myapplication.interfaces.PersonInterface
 
 /**
  * Created by guoxw on 2017/7/25 0025.
@@ -9,7 +10,7 @@ import android.util.Log
  * @desciption
  * @package com.example.guoxw.myapplication
  */
-open class Person(val name:String,val age:Int) :PersonInterface{
+open class Person(val name:String,val age:Int) : PersonInterface {
 
 
     override fun eat(food: String) {
